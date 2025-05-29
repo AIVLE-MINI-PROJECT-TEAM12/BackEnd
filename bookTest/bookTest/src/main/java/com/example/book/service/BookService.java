@@ -8,9 +8,9 @@ public interface BookService {
 
     Book insertBook(Book book);
     List<Book> findBooks();
-    Book findBook(Long id);
-    Book updateBook(Long id, Book book);
-    Book updateBook(Long id, Book.Status status);
-    void deleteBook(Long id);
+    Book findBook(Integer id);
+    Book updateBook(Integer id, Book book);
+    Book updateBook(Integer id, String url);
+    void deleteBook(Integer id);
 
 }

@@ -4,12 +4,9 @@ import com.example.book.domain.Book;
 import com.example.book.domain.User;
 import com.example.book.repository.BookRepository;
 import com.example.book.repository.UserRepository;
-import com.example.book.service.BookService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
 import java.util.*;
@@ -23,23 +20,23 @@ public class BookController {
     private final UserRepository userRepository;
 
     // 1. 도서 목록 조회
-    @GetMapping
-    public List<Map<String, Object>> getBooks(@RequestParam Integer user_id) {
-        List<Book> books = bookRepository.findByUserId(user_id);
-        Optional<User> user = userRepository.findById(user_id);
-
-        List<Map<String, Object>> result = new ArrayList<>();
-        for (Book b : books) {
-            Map<String, Object> map = new HashMap<>();
-            map.put("id", b.getBook_id());
-            map.put("book_name", b.getBook_name());
-            map.put("summary", b.getSummary());
-            map.put("user_id", b.getUser_id());
-            map.put("user_name", user.map(User::getUser_name).orElse("Unknown"));
-            result.add(map);
-        }
-        return result;
-    }
+//    @GetMapping
+//    public List<Map<String, Object>> getBooks(@RequestParam Integer user_id) {
+//        List<Book> books = bookRepository.findByUserId(user_id);
+//        Optional<User> user = userRepository.findById(user_id);
+//
+//        List<Map<String, Object>> result = new ArrayList<>();
+//        for (Book b : books) {
+//            Map<String, Object> map = new HashMap<>();
+//            map.put("book_id", b.getBook_id());
+//            map.put("book_name", b.getBook_name());
+//            map.put("summary", b.getSummary());
+//            map.put("user_id", b.getUser_id());
+//            map.put("user_name", user.map(User::getUser_name).orElse("Unknown"));
+//            result.add(map);
+//        }
+//        return result;
+//    }
 
     // 2. 도서 등록
     @PostMapping
@@ -65,7 +62,7 @@ public class BookController {
         User user = userRepository.findById(user_id).orElse(new User(user_id, "Unknown"));
 
         Map<String, Object> response = new HashMap<>();
-        response.put("id", saved.getBook_id());
+        response.put("book_id", saved.getBook_id());
         response.put("book_name", saved.getBook_name());
         response.put("summary", saved.getSummary());
         response.put("user_id", saved.getUser_id());
@@ -88,7 +85,7 @@ public class BookController {
         User user = userRepository.findById(book.getUser_id()).orElse(new User(book.getUser_id(), "Unknown"));
 
         Map<String, Object> response = new HashMap<>();
-        response.put("id", book.getBook_id());
+        response.put("book_id", book.getBook_id());
         response.put("book_name", book.getBook_name());
         response.put("summary", book.getSummary());
         response.put("create_date", book.getCreate_date());
