@@ -28,7 +28,7 @@ public class BookController {
     }
 
     @PostMapping
-    public Book createBook(@RequestBody BookDTO bookDto) {
+    public Book createBook(@RequestBody BookDTO.Post bookDto) {
         // 예시: user_id와 날짜는 컨트롤러에서 기본값 넣거나, DTO에 포함시켜야 함
         Book book = bookService.create(bookDto);
         book.setUser_id(1); // 테스트용 user_id
@@ -37,13 +37,18 @@ public class BookController {
     }
 
     @PutMapping("/{id}")
-    public Book updateBook(@PathVariable Integer id, @RequestBody BookDTO bookDto) {
+    public Book updateBook(@PathVariable Integer id, @RequestBody BookDTO.Put bookDto) {
         return bookService.update(id, bookDto);
     }
 
     @DeleteMapping("/{id}")
     public void deleteBook(@PathVariable Integer id) {
         bookService.delete(id);
+    }
+
+    @PatchMapping(("/{id}/cover"))
+    public Book update(Integer book_id, BookDTO.Patch bookDTO){
+        return bookService.update(book_id, bookDTO);
     }
 }
 

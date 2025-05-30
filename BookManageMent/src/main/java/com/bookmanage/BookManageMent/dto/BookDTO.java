@@ -53,8 +53,5 @@ public class BookDTO {
         private String book_image;
     }
 
-
-
-
 }
 
