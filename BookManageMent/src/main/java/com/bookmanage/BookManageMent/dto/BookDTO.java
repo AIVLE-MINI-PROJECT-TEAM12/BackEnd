@@ -7,20 +7,16 @@ import lombok.Setter;
 
 import java.time.LocalDateTime;
 
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
 public class BookDTO {
 
     @Setter @Getter
     @NoArgsConstructor
     @AllArgsConstructor
     public static class Post{
-        private Integer user_id;    // 작성자
+        private Integer user_id;    // 시스템 id
         private String book_name;   // 제목
         private String summary;     // 요약
-        private String book_image;    // 이미지
+        private String user_name;   // 작성자
     }
 
     @Setter @Getter
