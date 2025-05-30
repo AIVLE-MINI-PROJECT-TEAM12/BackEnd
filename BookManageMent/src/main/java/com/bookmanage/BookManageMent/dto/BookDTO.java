@@ -28,12 +28,11 @@ public class BookDTO {
         private String book_image;
     }
 
-
     @Setter @Getter
     @NoArgsConstructor
     @AllArgsConstructor
     public static class Response{
-        private Integer user_id;
+        private String user_id;
         private Integer book_id;
         private String book_name;
         private LocalDateTime create_date;
