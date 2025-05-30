@@ -20,8 +20,9 @@ public class Book {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer book_id;
 
+    @ManyToOne
     @Column(nullable = false)
-    private Integer user_id;
+    private String user_id;
 
     @Column(nullable = false, length = 50)
     private String book_name;

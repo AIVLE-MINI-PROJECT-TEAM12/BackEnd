@@ -16,7 +16,7 @@ public class UserDTO {
     @NoArgsConstructor @AllArgsConstructor
     @Builder
     public static class Response {
-        private Integer user_id;
+        private String user_id;
         private String user_name;
     }
 
