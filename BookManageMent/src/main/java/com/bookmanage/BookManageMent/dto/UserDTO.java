@@ -9,6 +9,7 @@ public class UserDTO {
     @NoArgsConstructor
     @AllArgsConstructor
     public static class Post {
+        private String user_id;
         private String user_name;
     }
 
