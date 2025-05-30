@@ -13,7 +13,7 @@ public class BookDTO {
     @NoArgsConstructor
     @AllArgsConstructor
     public static class Post{
-        private Integer user_id;    // 시스템 id
+        private String user_id;    // 시스템 id
         private String book_name;   // 제목
         private String summary;     // 요약
         private String user_name;   // 작성자
