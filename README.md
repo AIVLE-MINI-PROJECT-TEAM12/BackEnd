@@ -56,3 +56,84 @@ src/
     │   └── JwtUtil.java
     └── BookManageMentApplication.java
 ```
+
+![스크린샷 2025-05-30 160751](https://github.com/user-attachments/assets/eedd660e-e86d-48b1-b1eb-a369fc136d9a)
+
+
+## 📚 Book Management API 사용 가이드 (Postman 기반)
+✅ 1. 로그인 (POST /auth/login)
+- 요청 Body
+  ```
+  {
+  "user_id": "userid03",
+  "user_name": "aivle03"
+  }
+  ```
+- 응답
+  ```
+  {
+  "token": "uuid-토큰",
+  }
+  ```
+![스크린샷 2025-05-30 155334](https://github.com/user-attachments/assets/2a2b7534-870a-454f-948c-4e3cf30d6d2a)
+
+📘 2. 도서 등록 (POST /books)
+- 요청 Body
+  ```
+  {
+  "book_name": "자바의 정석",
+  "summary": "자바 언어의 기본부터 객체지향, 예외 처리까지 상세하게 다룬 프로그래밍 입문서입니다."
+  }
+  ```
+![스크린샷 2025-05-30 160739](https://github.com/user-attachments/assets/671aeb92-d75c-4a97-8d56-5f6edbe55930)
+
+📘 3. 도서 목록 조회 (GET /books)
+- 요청 Body
+```
+[
+    {
+        "book_id": 2,
+        "user": {
+            "user_id": "userid03",
+            "user_name": "aivle03"
+        },
+        "book_name": "자바의 정석",
+        "create_date": "2025-05-30T15:45:04.556874",
+        "modify_date": null,
+        "summary": "자바 언어의 기본부터 객체지향, 예외 처리까지 상세하게 다룬 프로그래밍 입문서입니다.",
+        "book_image": null
+    }
+]
+```
+![스크린샷 2025-05-30 160751](https://github.com/user-attachments/assets/eb00e908-1071-4bc1-b4a5-58a271cdd27c)
+![스크린샷 2025-05-30 160832](https://github.com/user-attachments/assets/044374c3-8855-47cf-bce2-8e8cd0d056ab)
+![스크린샷 2025-05-30 160815](https://github.com/user-attachments/assets/07f7cb90-487d-4f46-a712-b4ca9c49056a)
+
+📘 4. 도서 삭제 (DELETE /books/{book_id})
+- /books/2 으로 book_id가 2번인 도서 삭제
+![스크린샷 2025-05-30 160848](https://github.com/user-attachments/assets/73c0c0d9-c088-4541-905e-c75d2e41a6a9)
+![스크린샷 2025-05-30 160903](https://github.com/user-attachments/assets/1daca781-f786-44bc-8884-edc664023e08)
+
+
+📘 5. 도서 수정 (PUT /books/{book_id})
+- /books/3 으로 book_id가 3번인 도서 제목, 본문 수정
+- 요청 Body
+  ```
+  {
+  "book_name": "스프링 부트 마스터 수정하기",
+  "summary": "Spring Boot 기반 웹 애플리케이션 개발에 필요한 실무 노하우를 정리한 가이드 수정합니다."
+  }
+  ```
+![스크린샷 2025-05-30 160937](https://github.com/user-attachments/assets/e760b750-a0eb-4ab7-86d0-6a40b9a92971)
+
+
+📘 6. 도서 표지 생성 (PUT /books/{book_id}/cover)
+- /books/3 으로 book_id가 3번인 도서 표지 생성
+- 요청 Body
+  ```
+  {
+    "book_image": "http://nmixx.pmg"
+  }
+  ```
+![image](https://github.com/user-attachments/assets/5c22b622-df83-4599-80f1-5d1a9774b5fa)
+
