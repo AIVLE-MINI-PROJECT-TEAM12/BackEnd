@@ -90,7 +90,7 @@ src/
 ![스크린샷 2025-05-30 160739](https://github.com/user-attachments/assets/671aeb92-d75c-4a97-8d56-5f6edbe55930)
 - /books 으로 도서 등록
 - book_id 가 3인 도서
-![스크린샷 2025-05-30 160832](https://github.com/user-attachments/assets/044374c3-8855-47cf-bce2-8e8cd0d056ab)
+![스크린샷 2025-05-30 160815](https://github.com/user-attachments/assets/07f7cb90-487d-4f46-a712-b4ca9c49056a)
 
 📘 3. 도서 목록 조회 (GET /books)
 - /books/2 으로 book_id가 2번인 도서 조회
@@ -99,7 +99,7 @@ src/
 
 - /books 으로 전체 도서 목록 조회
 - 조회 결과
-![스크린샷 2025-05-30 160815](https://github.com/user-attachments/assets/07f7cb90-487d-4f46-a712-b4ca9c49056a)
+![스크린샷 2025-05-30 160832](https://github.com/user-attachments/assets/044374c3-8855-47cf-bce2-8e8cd0d056ab)
 
 📘 4. 도서 삭제 (DELETE /books/{book_id})
 - /books/2 으로 book_id가 2번인 도서 삭제
