@@ -46,13 +46,9 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public Book update(Integer book_id, String book_image) {
+    public Book update(Integer book_id, BookDTO.Patch bookDTO) {
         Book book = findById(book_id);
-        book.setBook_image(book_image);
-
-        BookDTO bookDTO;
-
-
+        book.setBook_image(bookDTO.getBook_image());
         return bookRepository.save(book);
     }
 

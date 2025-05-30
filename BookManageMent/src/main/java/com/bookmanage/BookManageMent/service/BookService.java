@@ -10,6 +10,6 @@ public interface BookService {
     Book findById(Integer book_id);
     Book create(BookDTO.Post bookDto);
     Book update(Integer book_id, BookDTO.Put bookDTO);
-    Book update(Integer book_id, String book_image);
+    Book update(Integer book_id, BookDTO.Patch bookDTO);
     void delete(Integer book_id);
 }
