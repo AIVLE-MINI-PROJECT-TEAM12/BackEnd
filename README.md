@@ -34,23 +34,25 @@ React + Vite + MUI 프런트엔드와 Spring Boot 백엔드로 구현한 **도�
 ---
 
 ## 📂 프로젝트 구조 (backend)
+```
 src/
-└─ main/java/com/bookmanage/BookManageMent/
-  ├─ controller/
-  │ ├─ BookController.java
-  │ └─ LoginController.java
-  ├─ domain/
-  │ ├─ Book.java
-  │ └─ User.java
-  ├─ dto/
-  │ ├─ BookDTO.java
-  │ └─ UserDTO.java
-  ├─ repository/
-  │ ├─ BookRepository.java
-  │ └─ UserRepository.java
-  ├─ service/
-  │ ├─ BookService.java
-  │ └─ BookServiceImpl.java
-  ├─ util/
-  │ └─ JwtUtil.java
-  └─ BookManageMentApplication.java
+└── main/java/com/bookmanage/BookManageMent/
+    ├── controller/
+    │   ├── BookController.java
+    │   └── LoginController.java
+    ├── domain/
+    │   ├── Book.java
+    │   └── User.java
+    ├── dto/
+    │   ├── BookDTO.java
+    │   └── UserDTO.java
+    ├── repository/
+    │   ├── BookRepository.java
+    │   └── UserRepository.java
+    ├── service/
+    │   ├── BookService.java
+    │   └── BookServiceImpl.java
+    ├── util/
+    │   └── JwtUtil.java
+    └── BookManageMentApplication.java
+```
