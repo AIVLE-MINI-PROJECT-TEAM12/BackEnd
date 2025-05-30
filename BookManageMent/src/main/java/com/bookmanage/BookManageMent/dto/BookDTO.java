@@ -46,6 +46,12 @@ public class BookDTO {
         private String book_image;
     }
 
+    @Setter @Getter
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class Patch{
+        private String book_image;
+    }
 
 
 
