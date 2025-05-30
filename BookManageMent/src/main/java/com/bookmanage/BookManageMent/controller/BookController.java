@@ -6,7 +6,6 @@ import com.bookmanage.BookManageMent.service.BookService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
@@ -18,37 +17,35 @@ public class BookController {
     private final BookService bookService;
 
     @GetMapping
-    public List<Book> getAllBooks() {
-        return bookService.findAll();
+    public List<Book> getAllBooks(@RequestHeader("Authorization") String token) {
+        return bookService.findAll(token);
     }
 
     @GetMapping("/{id}")
-    public Book getBookById(@PathVariable Integer id) {
-        return bookService.findById(id);
+    public Book getBookById(@RequestHeader("Authorization") String token, @PathVariable Integer id) {
+        return bookService.findById(token, id);
     }
 
     @PostMapping
-    public Book createBook(@RequestBody BookDTO.Post bookDto) {
-        // 예시: user_id와 날짜는 컨트롤러에서 기본값 넣거나, DTO에 포함시켜야 함
-        Book book = bookService.create(bookDto);
-        book.setUser_id(1); // 테스트용 user_id
-        book.setCreate_date(LocalDateTime.now());
-        return book;
+    public Book createBook(@RequestHeader("Authorization") String token, @RequestBody BookDTO.Post bookDto) {
+        return bookService.create(token, bookDto);
     }
 
     @PutMapping("/{id}")
-    public Book updateBook(@PathVariable Integer id, @RequestBody BookDTO.Put bookDto) {
-        return bookService.update(id, bookDto);
+    public Book updateBook(@RequestHeader("Authorization") String token, @PathVariable Integer id, @RequestBody BookDTO.Put bookDto) {
+        return bookService.update(token, id, bookDto);
     }
 
     @DeleteMapping("/{id}")
-    public void deleteBook(@PathVariable Integer id) {
-        bookService.delete(id);
+    public void deleteBook(@RequestHeader("Authorization") String token, @PathVariable Integer id) {
+        bookService.delete(token, id);
     }
 
-    @PatchMapping(("/{id}/cover"))
-    public Book update(@PathVariable Integer book_id, BookDTO.Patch bookDTO){
-        return bookService.update(book_id, bookDTO);
+    @PatchMapping("/{id}/cover")
+    public Book updateBookCover(@RequestHeader("Authorization") String token,
+                                @PathVariable Integer id,
+                                @RequestBody BookDTO.Patch bookDto) {
+        return bookService.update(token, id, bookDto);
     }
+
 }
-

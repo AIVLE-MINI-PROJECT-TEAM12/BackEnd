@@ -12,11 +12,11 @@ public class BookDTO {
     @Setter @Getter
     @NoArgsConstructor
     @AllArgsConstructor
-    public static class Post{
-        private String user_id;    // 시스템 id
-        private String book_name;   // 제목
-        private String summary;     // 요약
-        private String user_name;   // 작성자
+    public static class Post {
+        private String user_id;
+        private String book_name;
+        private String summary;
+        private String book_image;
     }
 
     @Setter @Getter

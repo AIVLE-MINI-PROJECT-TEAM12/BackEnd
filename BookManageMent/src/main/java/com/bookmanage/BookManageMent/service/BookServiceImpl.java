@@ -1,61 +1,85 @@
 package com.bookmanage.BookManageMent.service;
 
 import com.bookmanage.BookManageMent.domain.Book;
+import com.bookmanage.BookManageMent.domain.User;
 import com.bookmanage.BookManageMent.dto.BookDTO;
 import com.bookmanage.BookManageMent.repository.BookRepository;
+import com.bookmanage.BookManageMent.repository.UserRepository;
+import com.bookmanage.BookManageMent.util.JwtUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
 public class BookServiceImpl implements BookService {
     private final BookRepository bookRepository;
+    private final UserRepository userRepository;
+    private final JwtUtil jwtUtil;
 
-    @Override
-    public List<Book> findAll() {
-        return bookRepository.findAll();
+    private User getUserFromToken(String token) {
+        String userId = jwtUtil.validateAndGetUserId(token.replace("Bearer ", ""));
+        return userRepository.findById(userId)
+                .orElseThrow(() -> new RuntimeException("사용자를 찾을 수 없습니다."));
     }
 
     @Override
-    public Book findById(Integer book_id) {
-        return bookRepository.findById(book_id)
+    public List<Book> findAll(String token) {
+        User user = getUserFromToken(token);
+        return bookRepository.findAll().stream()
+                .filter(book -> book.getUser().getUser_id().equals(user.getUser_id()))
+                .toList();
+    }
+
+    @Override
+    public Book findById(String token, Integer book_id) {
+        User user = getUserFromToken(token);
+        Book book = bookRepository.findById(book_id)
                 .orElseThrow(() -> new RuntimeException("도서를 찾을 수 없습니다."));
+        if (!book.getUser().getUser_id().equals(user.getUser_id())) {
+            throw new RuntimeException("접근 권한이 없습니다.");
+        }
+        return book;
     }
 
     @Override
-    public Book create(BookDTO.Post bookDto) {
+    public Book create(String token, BookDTO.Post bookDto) {
+        User user = getUserFromToken(token);
         Book book = Book.builder()
+                .user(user)
                 .book_name(bookDto.getBook_name())
-                .create_date(LocalDateTime.now())
                 .summary(bookDto.getSummary())
+                .book_image(bookDto.getBook_image())
+                .create_date(LocalDateTime.now())
                 .build();
-
         return bookRepository.save(book);
     }
 
     @Override
-    public Book update(Integer book_id, BookDTO.Put bookDto) {
-        Book book = findById(book_id);
+    public Book update(String token, Integer book_id, BookDTO.Put bookDto) {
+        User user = getUserFromToken(token);
+        Book book = findById(token, book_id);
         book.setBook_name(bookDto.getBook_name());
         book.setSummary(bookDto.getSummary());
+        book.setBook_image(bookDto.getBook_image());
         book.setModify_date(LocalDateTime.now());
         return bookRepository.save(book);
     }
 
     @Override
-    public Book update(Integer book_id, BookDTO.Patch bookDTO) {
-        Book book = findById(book_id);
-        book.setBook_image(bookDTO.getBook_image());
+    public Book update(String token, Integer book_id, BookDTO.Patch bookDto) {
+        User user = getUserFromToken(token);
+        Book book = findById(token, book_id);
+        book.setBook_image(bookDto.getBook_image());
+        book.setModify_date(LocalDateTime.now());
         return bookRepository.save(book);
     }
 
     @Override
-    public void delete(Integer book_id) {
-        bookRepository.deleteById(book_id);
+    public void delete(String token, Integer book_id) {
+        Book book = findById(token, book_id);
+        bookRepository.delete(book);
     }
 }
-
-
