@@ -7,9 +7,9 @@ import java.util.List;
 
 public interface BookService {
     List<Book> findAll();
-    Book findById(Integer id);
-    Book create(BookDTO bookDto);
-    Book update(Integer id, BookDTO bookDTO);
-    Book update(Integer id, String imageURL);
-    void delete(Integer id);
+    Book findById(Integer book_id);
+    Book create(BookDTO.Post bookDto);
+    Book update(Integer book_id, BookDTO.Put bookDTO);
+    Book update(Integer book_id, String book_image);
+    void delete(Integer book_id);
 }

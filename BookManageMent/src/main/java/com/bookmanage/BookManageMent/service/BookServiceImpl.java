@@ -20,13 +20,13 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public Book findById(Integer id) {
-        return bookRepository.findById(id)
+    public Book findById(Integer book_id) {
+        return bookRepository.findById(book_id)
                 .orElseThrow(() -> new RuntimeException("도서를 찾을 수 없습니다."));
     }
 
     @Override
-    public Book create(BookDTO bookDto) {
+    public Book create(BookDTO.Post bookDto) {
         Book book = Book.builder()
                 .book_name(bookDto.getBook_name())
                 .create_date(LocalDateTime.now())
@@ -37,8 +37,8 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public Book update(Integer id, BookDTO bookDto) {
-        Book book = findById(id);
+    public Book update(Integer book_id, BookDTO.Put bookDto) {
+        Book book = findById(book_id);
         book.setBook_name(bookDto.getBook_name());
         book.setSummary(bookDto.getSummary());
         book.setModify_date(LocalDateTime.now());
@@ -46,9 +46,13 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public Book update(Integer id, String imageURL) {
-        Book book = findById(id);
-        book.setBook_image(imageURL);
+    public Book update(Integer book_id, String book_image) {
+        Book book = findById(book_id);
+        book.setBook_image(book_image);
+
+        BookDTO bookDTO;
+
+
         return bookRepository.save(book);
     }
 
