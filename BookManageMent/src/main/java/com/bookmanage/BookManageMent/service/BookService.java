@@ -12,5 +12,4 @@ public interface BookService {
     Book update(Integer id, BookDTO bookDTO);
     Book update(Integer id, String imageURL);
     void delete(Integer id);
-
 }
