@@ -7,9 +7,10 @@ import java.util.List;
 
 public interface BookService {
     List<Book> findAll();
-    Book findById(Long id);
+    Book findById(Integer id);
     Book create(BookDTO bookDto);
-    Book update(Long id, BookDTO bookDTO);
-    void delete(Long id);
+    Book update(Integer id, BookDTO bookDTO);
+    Book update(Integer id, String imageURL);
+    void delete(Integer id);
 
 }

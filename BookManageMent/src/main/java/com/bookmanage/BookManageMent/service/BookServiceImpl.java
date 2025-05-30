@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.time.LocalDateTime;
 
 @Service
 @RequiredArgsConstructor
@@ -19,7 +20,7 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public Book findById(Long id) {
+    public Book findById(Integer id) {
         return bookRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("도서를 찾을 수 없습니다."));
     }
@@ -28,21 +29,31 @@ public class BookServiceImpl implements BookService {
     public Book create(BookDTO bookDto) {
         Book book = Book.builder()
                 .book_name(bookDto.getBook_name())
+                .create_date(LocalDateTime.now())
                 .summary(bookDto.getSummary())
                 .build();
+
         return bookRepository.save(book);
     }
 
     @Override
-    public Book update(Long id, BookDTO bookDto) {
+    public Book update(Integer id, BookDTO bookDto) {
         Book book = findById(id);
         book.setBook_name(bookDto.getBook_name());
         book.setSummary(bookDto.getSummary());
+        book.setModify_date(LocalDateTime.now());
         return bookRepository.save(book);
     }
 
     @Override
-    public void delete(Long id) {
+    public Book update(Integer id, String imageURL) {
+        Book book = findById(id);
+        book.setBook_image(imageURL);
+        return bookRepository.save(book);
+    }
+
+    @Override
+    public void delete(Integer id) {
         bookRepository.deleteById(id);
     }
 }
