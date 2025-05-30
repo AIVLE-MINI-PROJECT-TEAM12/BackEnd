@@ -47,7 +47,7 @@ public class BookController {
     }
 
     @PatchMapping(("/{id}/cover"))
-    public Book update(Integer book_id, BookDTO.Patch bookDTO){
+    public Book update(@PathVariable Integer book_id, BookDTO.Patch bookDTO){
         return bookService.update(book_id, bookDTO);
     }
 }
