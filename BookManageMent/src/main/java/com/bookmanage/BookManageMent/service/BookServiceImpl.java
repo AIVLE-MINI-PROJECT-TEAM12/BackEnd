@@ -61,6 +61,11 @@ public class BookServiceImpl implements BookService {
     public Book update(String token, Integer book_id, BookDTO.Put bookDto) {
         User user = getUserFromToken(token);
         Book book = findById(token, book_id);
+
+        if (!book.getUser().getUser_id().equals(user.getUser_id())) {
+            throw new RuntimeException("접근 권한이 없습니다.");
+        }
+
         book.setBook_name(bookDto.getBook_name());
         book.setSummary(bookDto.getSummary());
         book.setBook_image(bookDto.getBook_image());
@@ -72,6 +77,11 @@ public class BookServiceImpl implements BookService {
     public Book update(String token, Integer book_id, BookDTO.Patch bookDto) {
         User user = getUserFromToken(token);
         Book book = findById(token, book_id);
+
+        if (!book.getUser().getUser_id().equals(user.getUser_id())) {
+            throw new RuntimeException("접근 권한이 없습니다.");
+        }
+
         book.setBook_image(bookDto.getBook_image());
         book.setModify_date(LocalDateTime.now());
         return bookRepository.save(book);
@@ -79,7 +89,13 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public void delete(String token, Integer book_id) {
+        User user = getUserFromToken(token);
         Book book = findById(token, book_id);
+
+        if (!book.getUser().getUser_id().equals(user.getUser_id())) {
+            throw new RuntimeException("접근 권한이 없습니다.");
+        }
+
         bookRepository.delete(book);
     }
 }
