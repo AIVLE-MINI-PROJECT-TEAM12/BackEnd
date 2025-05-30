@@ -78,6 +78,8 @@ src/
 ![스크린샷 2025-05-30 155334](https://github.com/user-attachments/assets/2a2b7534-870a-454f-948c-4e3cf30d6d2a)
 
 📘 2. 도서 등록 (POST /books)
+- /books 으로 도서 등록
+- book_id 가 2인 도서
 - 요청 Body
   ```
   {
@@ -86,27 +88,17 @@ src/
   }
   ```
 ![스크린샷 2025-05-30 160739](https://github.com/user-attachments/assets/671aeb92-d75c-4a97-8d56-5f6edbe55930)
+- /books 으로 도서 등록
+- book_id 가 3인 도서
+![스크린샷 2025-05-30 160832](https://github.com/user-attachments/assets/044374c3-8855-47cf-bce2-8e8cd0d056ab)
 
 📘 3. 도서 목록 조회 (GET /books)
-- 요청 Body
-```
-[
-    {
-        "book_id": 2,
-        "user": {
-            "user_id": "userid03",
-            "user_name": "aivle03"
-        },
-        "book_name": "자바의 정석",
-        "create_date": "2025-05-30T15:45:04.556874",
-        "modify_date": null,
-        "summary": "자바 언어의 기본부터 객체지향, 예외 처리까지 상세하게 다룬 프로그래밍 입문서입니다.",
-        "book_image": null
-    }
-]
-```
+- /books/2 으로 book_id가 2번인 도서 조회
+- 조회 결과
 ![스크린샷 2025-05-30 160751](https://github.com/user-attachments/assets/eb00e908-1071-4bc1-b4a5-58a271cdd27c)
-![스크린샷 2025-05-30 160832](https://github.com/user-attachments/assets/044374c3-8855-47cf-bce2-8e8cd0d056ab)
+
+- /books 으로 전체 도서 목록 조회
+- 조회 결과
 ![스크린샷 2025-05-30 160815](https://github.com/user-attachments/assets/07f7cb90-487d-4f46-a712-b4ca9c49056a)
 
 📘 4. 도서 삭제 (DELETE /books/{book_id})
