@@ -17,7 +17,7 @@ public class BookController {
     private final BookService bookService;
 
     @GetMapping
-    public List<Book> getAllBooks(@RequestHeader("Authorization") String token) {
+    public List<BookDTO.Response> getAllBooks(@RequestHeader("Authorization") String token) {
         return bookService.findAll(token);
     }
 
@@ -26,9 +26,14 @@ public class BookController {
         return bookService.findById(token, id);
     }
 
+    @GetMapping("/my")
+    public List<BookDTO.Response> getMyBooks(@RequestHeader("Authorization") String token) {
+        return bookService.findAll(token);
+    }
+
     @PostMapping
     public Book createBook(@RequestHeader("Authorization") String token, @RequestBody BookDTO.Post bookDto) {
-        return bookService.create(token, bookDto);
+        return bookService.createBook(token, bookDto);
     }
 
     @PutMapping("/{id}")
@@ -45,6 +50,7 @@ public class BookController {
     public Book updateBookCover(@RequestHeader("Authorization") String token,
                                 @PathVariable Integer id,
                                 @RequestBody BookDTO.Patch bookDto) {
+        System.out.println("✅ PATCH 요청 도착 book_image = " + bookDto.getBook_image());
         return bookService.update(token, id, bookDto);
     }
 

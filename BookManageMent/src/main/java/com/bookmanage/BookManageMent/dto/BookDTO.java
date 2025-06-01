@@ -33,6 +33,7 @@ public class BookDTO {
     @AllArgsConstructor
     public static class Response{
         private String user_id;
+        private String user_name;
         private Integer book_id;
         private String book_name;
         private LocalDateTime create_date;
