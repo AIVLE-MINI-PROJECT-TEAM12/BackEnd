@@ -10,7 +10,9 @@ import java.util.Date;
 
 @Component
 public class JwtUtil {
-    private final Key key = Keys.secretKeyFor(SignatureAlgorithm.HS256);
+    private final String secret = "aivle-mini-project-super-secret-key-123456"; // 최소 32자 이상
+    private final Key key = Keys.hmacShaKeyFor(secret.getBytes());
+//    private final Key key = Keys.secretKeyFor(SignatureAlgorithm.HS256);
     private final long expiration = 1000 * 60 * 60; // 1시간
 
     public String generateToken(String userId) {
