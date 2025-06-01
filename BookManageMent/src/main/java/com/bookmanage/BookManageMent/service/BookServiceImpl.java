@@ -5,6 +5,7 @@ import com.bookmanage.BookManageMent.domain.User;
 import com.bookmanage.BookManageMent.dto.BookDTO;
 import com.bookmanage.BookManageMent.repository.BookRepository;
 import com.bookmanage.BookManageMent.repository.UserRepository;
+import com.bookmanage.BookManageMent.util.BookMapper;
 import com.bookmanage.BookManageMent.util.JwtUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -26,15 +27,20 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public List<Book> findAll(String token) {
+    public List<BookDTO.Response> findAll(String token) {
         User user = getUserFromToken(token);
-        return bookRepository.findAll().stream()
+
+        List<Book> books = bookRepository.findAll().stream()
                 .filter(book -> book.getUser().getUser_id().equals(user.getUser_id()))
+                .toList();
+
+        return books.stream()
+                .map(BookMapper::toResponse)
                 .toList();
     }
 
     @Override
-    public Book findById(String token, Integer book_id) {
+    public Book findBookById(String token, Integer book_id) {
         User user = getUserFromToken(token);
         Book book = bookRepository.findById(book_id)
                 .orElseThrow(() -> new RuntimeException("도서를 찾을 수 없습니다."));
@@ -45,7 +51,18 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public Book create(String token, BookDTO.Post bookDto) {
+    public BookDTO.Response findById(String token, Integer book_id) {
+        User user = getUserFromToken(token);
+        Book book = bookRepository.findById(book_id)
+                .orElseThrow(() -> new RuntimeException("도서를 찾을 수 없습니다."));
+        if (!book.getUser().getUser_id().equals(user.getUser_id())) {
+            throw new RuntimeException("접근 권한이 없습니다.");
+        }
+        return BookMapper.toResponse(book);
+    }
+
+    @Override
+    public BookDTO.Response create(String token, BookDTO.Post bookDto) {
         User user = getUserFromToken(token);
         Book book = Book.builder()
                 .user(user)
@@ -54,13 +71,13 @@ public class BookServiceImpl implements BookService {
                 .book_image(bookDto.getBook_image())
                 .create_date(LocalDateTime.now())
                 .build();
-        return bookRepository.save(book);
+        return BookMapper.toResponse(bookRepository.save(book));
     }
 
     @Override
-    public Book update(String token, Integer book_id, BookDTO.Put bookDto) {
+    public BookDTO.Response update(String token, Integer book_id, BookDTO.Put bookDto) {
         User user = getUserFromToken(token);
-        Book book = findById(token, book_id);
+        Book book = findBookById(token, book_id);
 
         if (!book.getUser().getUser_id().equals(user.getUser_id())) {
             throw new RuntimeException("접근 권한이 없습니다.");
@@ -70,13 +87,13 @@ public class BookServiceImpl implements BookService {
         book.setSummary(bookDto.getSummary());
         book.setBook_image(bookDto.getBook_image());
         book.setModify_date(LocalDateTime.now());
-        return bookRepository.save(book);
+        return BookMapper.toResponse(bookRepository.save(book));
     }
 
     @Override
-    public Book update(String token, Integer book_id, BookDTO.Patch bookDto) {
+    public BookDTO.Response update(String token, Integer book_id, BookDTO.Patch bookDto) {
         User user = getUserFromToken(token);
-        Book book = findById(token, book_id);
+        Book book = findBookById(token, book_id);
 
         if (!book.getUser().getUser_id().equals(user.getUser_id())) {
             throw new RuntimeException("접근 권한이 없습니다.");
@@ -84,13 +101,13 @@ public class BookServiceImpl implements BookService {
 
         book.setBook_image(bookDto.getBook_image());
         book.setModify_date(LocalDateTime.now());
-        return bookRepository.save(book);
+        return BookMapper.toResponse(bookRepository.save(book));
     }
 
     @Override
     public void delete(String token, Integer book_id) {
         User user = getUserFromToken(token);
-        Book book = findById(token, book_id);
+        Book book = findBookById(token, book_id);
 
         if (!book.getUser().getUser_id().equals(user.getUser_id())) {
             throw new RuntimeException("접근 권한이 없습니다.");

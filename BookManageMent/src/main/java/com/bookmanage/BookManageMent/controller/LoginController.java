@@ -13,6 +13,7 @@ import java.util.Map;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/auth")
+@CrossOrigin(origins = "http://localhost:5173")
 public class LoginController {
 
     private final UserRepository userRepository;
