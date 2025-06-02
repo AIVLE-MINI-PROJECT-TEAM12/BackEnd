@@ -35,7 +35,7 @@ React + Vite + MUI 프런트엔드와 Spring Boot 백엔드로 구현한 **도�
 | 영역 | 사용 기술 |
 |------|----------|
 | Frontend | **React 18**, **Vite**, **MUI v5**, Axios, React Router v6 |
-| Backend | **Spring Boot 3**, Spring MVC, Spring Data JPA, H2 |
+| Backend | **Spring Boot 3.5**, Spring MVC, Spring Data JPA, H2 |
 | AI | **OpenAI Images API (DALL·E 3)** |
 | Infra | Node >= 18, Java 17, (Option) Docker Compose |
 
