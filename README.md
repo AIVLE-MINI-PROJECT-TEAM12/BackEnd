@@ -42,9 +42,6 @@ React + Vite + MUI 프런트엔드와 Spring Boot 백엔드로 구현한 **도�
 ```
 src/
 └── main/java/com/bookmanage/BookManageMent/
-    ├── controller/
-    │   ├── BookController.java
-    │   └── LoginController.java
     ├── domain/
     │   ├── Book.java
     │   └── User.java
@@ -57,6 +54,9 @@ src/
     ├── service/
     │   ├── BookService.java
     │   └── BookServiceImpl.java
+    ├── controller/
+    │   ├── BookController.java
+    │   └── LoginController.java
     ├── util/
     │   ├── BookMapper.java
     │   └── JwtUtil.java
