@@ -7,9 +7,9 @@ import java.util.List;
 
 public interface BookService {
     List<BookDTO.Response> findAll(String token);
-    Book findById(String token, Integer book_id);
-    Book createBook(String token, BookDTO.Post bookDto);
-    Book update(String token, Integer book_id, BookDTO.Put bookDTO);
-    Book update(String token, Integer book_id, BookDTO.Patch bookDTO);
+    BookDTO.Response findById(String token, Integer book_id);
+    BookDTO.Response createBook(String token, BookDTO.Post bookDto);
+    BookDTO.Response update(String token, Integer book_id, BookDTO.Put bookDTO);
+    BookDTO.Response update(String token, Integer book_id, BookDTO.Patch bookDTO);
     void delete(String token, Integer book_id);
 }
