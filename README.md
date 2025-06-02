@@ -11,20 +11,20 @@ React + Vite + MUI 프런트엔드와 Spring Boot 백엔드로 구현한 **도�
 ---
 
 ## 🚀 Features
-| JAVA 클래스 | 소스코드 링크 | 주요 기능 |
-|--------|:------:|-----------|
-| 📘 **Book Entity Class** | [소스](https://github.com/AIVLE-MINI-PROJECT-TEAM12/BackEnd/blob/main/BookManageMent/src/main/java/com/bookmanage/BookManageMent/domain/Book.java) | Book Entity 정의 |
-| 👤 **User Entity Class** | [소스](https://github.com/AIVLE-MINI-PROJECT-TEAM12/BackEnd/blob/main/BookManageMent/src/main/java/com/bookmanage/BookManageMent/domain/User.java) | User Entity 정의 |
-| 🧾 **Book DTO Class** | [소스](https://github.com/AIVLE-MINI-PROJECT-TEAM12/BackEnd/blob/main/BookManageMent/src/main/java/com/bookmanage/BookManageMent/dto/BookDTO.java) | Book DTO 정의 |
-| 🧾 **User DTO Class** | [소스](https://github.com/AIVLE-MINI-PROJECT-TEAM12/BackEnd/blob/main/BookManageMent/src/main/java/com/bookmanage/BookManageMent/dto/UserDTO.java) | User DTO 정의 |
-| 🗂 **BookRepository Interface** | [소스](https://github.com/AIVLE-MINI-PROJECT-TEAM12/BackEnd/blob/main/BookManageMent/src/main/java/com/bookmanage/BookManageMent/repository/BookRepository.java) | JPA 기반 BookRepository 인터페이스 |
-| 🗂 **UserRepository Interface** | [소스](https://github.com/AIVLE-MINI-PROJECT-TEAM12/BackEnd/blob/main/BookManageMent/src/main/java/com/bookmanage/BookManageMent/repository/UserRepository.java) | JPA 기반 UserRepository 인터페이스 |
-| 🧩 **BookService Interface** | [소스](https://github.com/AIVLE-MINI-PROJECT-TEAM12/BackEnd/blob/main/BookManageMent/src/main/java/com/bookmanage/BookManageMent/service/BookService.java) | BookService 인터페이스 |
-| 🛠 **BookServiceImpl Class** | [소스](https://github.com/AIVLE-MINI-PROJECT-TEAM12/BackEnd/blob/main/BookManageMent/src/main/java/com/bookmanage/BookManageMent/service/BookServiceImpl.java) | BookService 기능 정의 |
-| 🌐 **BookController** | [소스](https://github.com/AIVLE-MINI-PROJECT-TEAM12/BackEnd/blob/main/BookManageMent/src/main/java/com/bookmanage/BookManageMent/controller/BookController.java) | CRUD에 따른 요청 처리 |
-| 🔐 **LoginController** | [소스](https://github.com/AIVLE-MINI-PROJECT-TEAM12/BackEnd/blob/main/BookManageMent/src/main/java/com/bookmanage/BookManageMent/controller/LoginController.java) | 로그인 요청 처리 |
-| 🧰 **BookMapper Class** | [소스](https://github.com/AIVLE-MINI-PROJECT-TEAM12/BackEnd/blob/main/BookManageMent/src/main/java/com/bookmanage/BookManageMent/util/BookMapper.java) | Book 데이터 형식 매핑 |
-| 🛡 **JWTUtil Class** | [소스](https://github.com/AIVLE-MINI-PROJECT-TEAM12/BackEnd/blob/main/BookManageMent/src/main/java/com/bookmanage/BookManageMent/util/JWTUtil.java) | 로그인 사용자 토큰 부여 |
+| JAVA 클래스 | 주요 기능 |
+|--------|-----------|
+| 📘 [ **Book Entity Class** ](https://github.com/AIVLE-MINI-PROJECT-TEAM12/BackEnd/blob/main/BookManageMent/src/main/java/com/bookmanage/BookManageMent/domain/Book.java) | Book Entity 정의 |
+| 👤 [ **User Entity Class** ](https://github.com/AIVLE-MINI-PROJECT-TEAM12/BackEnd/blob/main/BookManageMent/src/main/java/com/bookmanage/BookManageMent/domain/User.java) | User Entity 정의 |
+| 🧾 [ **Book DTO Class** ](https://github.com/AIVLE-MINI-PROJECT-TEAM12/BackEnd/blob/main/BookManageMent/src/main/java/com/bookmanage/BookManageMent/dto/BookDTO.java) | Book DTO 정의 |
+| 🧾 [ **User DTO Class** ](https://github.com/AIVLE-MINI-PROJECT-TEAM12/BackEnd/blob/main/BookManageMent/src/main/java/com/bookmanage/BookManageMent/dto/UserDTO.java) | User DTO 정의 |
+| 🗂 [ **BookRepository Interface** ](https://github.com/AIVLE-MINI-PROJECT-TEAM12/BackEnd/blob/main/BookManageMent/src/main/java/com/bookmanage/BookManageMent/repository/BookRepository.java) | JPA 기반 BookRepository 인터페이스 |
+| 🗂 [ **UserRepository Interface** ](https://github.com/AIVLE-MINI-PROJECT-TEAM12/BackEnd/blob/main/BookManageMent/src/main/java/com/bookmanage/BookManageMent/repository/UserRepository.java) | JPA 기반 UserRepository 인터페이스 |
+| 🧩 [ **BookService Interface** ](https://github.com/AIVLE-MINI-PROJECT-TEAM12/BackEnd/blob/main/BookManageMent/src/main/java/com/bookmanage/BookManageMent/service/BookService.java) | BookService 인터페이스 |
+| 🛠 [ **BookServiceImpl Class** ](https://github.com/AIVLE-MINI-PROJECT-TEAM12/BackEnd/blob/main/BookManageMent/src/main/java/com/bookmanage/BookManageMent/service/BookServiceImpl.java) | BookService 기능 정의 |
+| 🌐 [ **BookController** ](https://github.com/AIVLE-MINI-PROJECT-TEAM12/BackEnd/blob/main/BookManageMent/src/main/java/com/bookmanage/BookManageMent/controller/BookController.java) | CRUD에 따른 요청 처리 |
+| 🔐 [ **LoginController** ](https://github.com/AIVLE-MINI-PROJECT-TEAM12/BackEnd/blob/main/BookManageMent/src/main/java/com/bookmanage/BookManageMent/controller/LoginController.java) | 로그인 요청 처리 |
+| 🧰 [ **BookMapper Class** ](https://github.com/AIVLE-MINI-PROJECT-TEAM12/BackEnd/blob/main/BookManageMent/src/main/java/com/bookmanage/BookManageMent/util/BookMapper.java) | Book 데이터 형식 매핑 |
+| 🛡 [ **JWTUtil Class** ](https://github.com/AIVLE-MINI-PROJECT-TEAM12/BackEnd/blob/main/BookManageMent/src/main/java/com/bookmanage/BookManageMent/util/JWTUtil.java) | 로그인 사용자 토큰 부여 |
 
 ---
 
