@@ -91,7 +91,7 @@ src/
 
 - /books 으로 도서 등록
 - book 2
-
+- 요청 Body
   ```
   {
     "book_name": "스프링 부트 마스터",
