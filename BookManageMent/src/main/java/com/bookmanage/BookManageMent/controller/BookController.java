@@ -22,7 +22,7 @@ public class BookController {
     }
 
     @GetMapping("/{id}")
-    public Book getBookById(@RequestHeader("Authorization") String token, @PathVariable Integer id) {
+    public BookDTO.Response getBookById(@RequestHeader("Authorization") String token, @PathVariable Integer id) {
         return bookService.findById(token, id);
     }
 
@@ -32,12 +32,12 @@ public class BookController {
     }
 
     @PostMapping
-    public Book createBook(@RequestHeader("Authorization") String token, @RequestBody BookDTO.Post bookDto) {
+    public BookDTO.Response createBook(@RequestHeader("Authorization") String token, @RequestBody BookDTO.Post bookDto) {
         return bookService.createBook(token, bookDto);
     }
 
     @PutMapping("/{id}")
-    public Book updateBook(@RequestHeader("Authorization") String token, @PathVariable Integer id, @RequestBody BookDTO.Put bookDto) {
+    public BookDTO.Response updateBook(@RequestHeader("Authorization") String token, @PathVariable Integer id, @RequestBody BookDTO.Put bookDto) {
         return bookService.update(token, id, bookDto);
     }
 
@@ -47,7 +47,7 @@ public class BookController {
     }
 
     @PatchMapping("/{id}/cover")
-    public Book updateBookCover(@RequestHeader("Authorization") String token,
+    public BookDTO.Response updateBookCover(@RequestHeader("Authorization") String token,
                                 @PathVariable Integer id,
                                 @RequestBody BookDTO.Patch bookDto) {
         System.out.println("✅ PATCH 요청 도착 book_image = " + bookDto.getBook_image());

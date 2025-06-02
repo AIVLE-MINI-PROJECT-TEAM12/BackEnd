@@ -1,5 +1,6 @@
 package com.bookmanage.BookManageMent.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -36,10 +37,13 @@ public class BookDTO {
         private String user_name;
         private Integer book_id;
         private String book_name;
+        @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
         private LocalDateTime create_date;
+        @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
         private LocalDateTime modify_date;
         private String summary;
         private String book_image;
+
     }
 
     @Setter @Getter
