@@ -12,6 +12,20 @@ React + Vite + MUI 프런트엔드와 Spring Boot 백엔드로 구현한 **도�
 ## 🧾 System Configuration
 ![시스템 구성도](https://github.com/user-attachments/assets/8dce9301-cb9c-4312-8faf-a1187b859e16)
 
+## 📘 E-R Diagram
+![E-R Diagram](https://github.com/user-attachments/assets/8c8bcf71-f69c-49b4-adb8-9a93b3e58a73)
+
+## 🛠 RESTful API
+| Method | API | Input | Output |
+|--------|-----|-------|--------|
+| GET | /auth/login | user_id, user_name | token |
+| GET | /books | - | user_id, user_name, book_id, book_name, create_date, modify_date, summary, book_image |
+| POST | /books | book_name, summary | user_id, user_name, book_id, book_name, create_date, modify_date, summary, book_image |
+| GET | /books/:book_id | - | user_id, user_name, book_id, book_name, create_date, modify_date, summary, book_image |
+| PUT | /books/:bookd_id | book_name, summary | user_id, user_name, book_id, book_name, create_date, modify_date, summary, book_image |
+| DELETE | /books/:book_id | - | - |
+| PATCH | /books/:book_id/cover | book_image | user_id, user_name, book_id, book_name, create_date, modify_date, summary, book_image |
+
 
 ## 🚀 Features
 | JAVA 클래스 | 주요 기능 |
