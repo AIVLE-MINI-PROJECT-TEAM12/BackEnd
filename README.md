@@ -10,6 +10,9 @@ React + Vite + MUI 프런트엔드와 Spring Boot 백엔드로 구현한 **도�
 - 등록된 정보는 H2 Database에 저장
 
 <!-- ![screenshot](./docs/screenshot-list.png) -->
+---
+## 🧾 System Configuration
+![시스템 구성도](https://github.com/user-attachments/assets/8dce9301-cb9c-4312-8faf-a1187b859e16)
 
 ---
 
