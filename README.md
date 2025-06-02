@@ -9,12 +9,9 @@ React + Vite + MUI 프런트엔드와 Spring Boot 백엔드로 구현한 **도�
 - 인증된 사용자의 도서 등록, 수정 삭제 기능 지원
 - 등록된 정보는 H2 Database에 저장
 
-<!-- ![screenshot](./docs/screenshot-list.png) -->
----
 ## 🧾 System Configuration
 ![시스템 구성도](https://github.com/user-attachments/assets/8dce9301-cb9c-4312-8faf-a1187b859e16)
 
----
 
 ## 🚀 Features
 | JAVA 클래스 | 주요 기능 |
@@ -32,7 +29,6 @@ React + Vite + MUI 프런트엔드와 Spring Boot 백엔드로 구현한 **도�
 | 🧰 [ **BookMapper Class** ](https://github.com/AIVLE-MINI-PROJECT-TEAM12/BackEnd/blob/main/BookManageMent/src/main/java/com/bookmanage/BookManageMent/util/BookMapper.java) | Book 데이터 형식 매핑 |
 | 🛡 [ **JWTUtil Class** ](https://github.com/AIVLE-MINI-PROJECT-TEAM12/BackEnd/blob/main/BookManageMent/src/main/java/com/bookmanage/BookManageMent/util/JWTUtil.java) | 로그인 사용자 토큰 부여 |
 
----
 
 ## 🏗 Tech Stack
 | 영역 | 사용 기술 |
@@ -42,7 +38,6 @@ React + Vite + MUI 프런트엔드와 Spring Boot 백엔드로 구현한 **도�
 | AI | **OpenAI Images API (DALL·E 3)** |
 | Infra | Node >= 22, Java 17 |
 
----
 
 ## 📂 프로젝트 구조 (backend)
 ```
