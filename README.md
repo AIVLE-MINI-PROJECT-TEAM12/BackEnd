@@ -53,6 +53,7 @@ src/
     │   ├── BookService.java
     │   └── BookServiceImpl.java
     ├── util/
+    │   ├── BookMapper.java
     │   └── JwtUtil.java
     └── BookManageMentApplication.java
 ```
