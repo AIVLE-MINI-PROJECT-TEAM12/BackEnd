@@ -1,10 +1,13 @@
 # BackEnd
 
+KT AIVLE Team 12 Back-End Team
+
 📚 도서관리서비스
 
 React + Vite + MUI 프런트엔드와 Spring Boot 백엔드로 구현한 **도서 관리 서비스**  
-- CRUD·표지 생성(OpenAI DALL·E)·MUI 컴포넌트·Axios API 통신  
-- “📝 notepad” 스타일 카드 위에 표지 이미지를 오버레이 하는 UI
+- JWT 인증을 기반으로 한 사용자 인증
+- 인증된 사용자의 도서 등록, 수정 삭제 기능 지원
+- 등록된 정보는 H2 Database에 저장
 
 <!-- ![screenshot](./docs/screenshot-list.png) -->
 
@@ -21,8 +24,8 @@ React + Vite + MUI 프런트엔드와 Spring Boot 백엔드로 구현한 **도�
 | 🗂 [ **UserRepository Interface** ](https://github.com/AIVLE-MINI-PROJECT-TEAM12/BackEnd/blob/main/BookManageMent/src/main/java/com/bookmanage/BookManageMent/repository/UserRepository.java) | JPA 기반 UserRepository 인터페이스 |
 | 🧩 [ **BookService Interface** ](https://github.com/AIVLE-MINI-PROJECT-TEAM12/BackEnd/blob/main/BookManageMent/src/main/java/com/bookmanage/BookManageMent/service/BookService.java) | BookService 인터페이스 |
 | 🛠 [ **BookServiceImpl Class** ](https://github.com/AIVLE-MINI-PROJECT-TEAM12/BackEnd/blob/main/BookManageMent/src/main/java/com/bookmanage/BookManageMent/service/BookServiceImpl.java) | BookService 기능 정의 |
-| 🌐 [ **BookController** ](https://github.com/AIVLE-MINI-PROJECT-TEAM12/BackEnd/blob/main/BookManageMent/src/main/java/com/bookmanage/BookManageMent/controller/BookController.java) | CRUD에 따른 요청 처리 |
-| 🔐 [ **LoginController** ](https://github.com/AIVLE-MINI-PROJECT-TEAM12/BackEnd/blob/main/BookManageMent/src/main/java/com/bookmanage/BookManageMent/controller/LoginController.java) | 로그인 요청 처리 |
+| 🌐 [ **BookController Class** ](https://github.com/AIVLE-MINI-PROJECT-TEAM12/BackEnd/blob/main/BookManageMent/src/main/java/com/bookmanage/BookManageMent/controller/BookController.java) | CRUD에 따른 요청 처리 |
+| 🔐 [ **LoginController Class** ](https://github.com/AIVLE-MINI-PROJECT-TEAM12/BackEnd/blob/main/BookManageMent/src/main/java/com/bookmanage/BookManageMent/controller/LoginController.java) | 로그인 요청 처리 |
 | 🧰 [ **BookMapper Class** ](https://github.com/AIVLE-MINI-PROJECT-TEAM12/BackEnd/blob/main/BookManageMent/src/main/java/com/bookmanage/BookManageMent/util/BookMapper.java) | Book 데이터 형식 매핑 |
 | 🛡 [ **JWTUtil Class** ](https://github.com/AIVLE-MINI-PROJECT-TEAM12/BackEnd/blob/main/BookManageMent/src/main/java/com/bookmanage/BookManageMent/util/JWTUtil.java) | 로그인 사용자 토큰 부여 |
 
@@ -62,6 +65,7 @@ src/
     │   └── JwtUtil.java
     └── BookManageMentApplication.java
 ```
+---
 
 ## 📚 Book Management API 사용 가이드 (Postman 기반)
 ✅ 1. 로그인 (POST /auth/login)
