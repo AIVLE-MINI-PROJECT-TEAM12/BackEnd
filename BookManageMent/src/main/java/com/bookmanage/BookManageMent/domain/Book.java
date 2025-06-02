@@ -29,6 +29,6 @@ public class Book {
     @Column(nullable = false, length = 500)
     private String summary;
 
-    @Column(name = "book_image", columnDefinition = "TEXT")
+    @Column(name = "book_image", columnDefinition = "TEXT", length = 1000)
     private String book_image;
 }
